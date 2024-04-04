@@ -27,4 +27,4 @@ scikit-learn = "^1.0.2"
 librosa = "^0.10.0"
 wget = "^3.2"
 python = "^3.10"
-fairseq = {path = "./fairseq", develop=true}
+fairseq = "^v0.12.2"
