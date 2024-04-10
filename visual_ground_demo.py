@@ -13,19 +13,23 @@ model = from_pretrained(
 
 # process raw data
 image_text_list = [
-    ("assets/pokemons.jpg", "a blue turtle-like pokemon with round head"),
-    ("assets/pokemons.jpg", "Bulbasaur"),
-    ("assets/pokemons.jpg", "Charmander"),
-    ("assets/pokemons.jpg", "Squirtle"),
-    ("assets/one_piece.jpeg", "Brook"),
-    ("assets/one_piece.jpeg", "Franky"),
-    ("assets/one_piece.jpeg", "Monkey D. Luffy"),
-    ("assets/one_piece.jpeg", "Nami"),
-    ("assets/one_piece.jpeg", "Nico Robin"),
-    ("assets/one_piece.jpeg", "Roronoa Zoro"),
-    ("assets/one_piece.jpeg", "Tony Tony Chopper"),
-    ("assets/one_piece.jpeg", "Usopp"),
-    ("assets/one_piece.jpeg", "Vinsmoke Sanji"),
+    # ("assets/pokemons.jpg", "a blue turtle-like pokemon with round head"),
+    # ("assets/shelf.png", "a banana and apple on the shelf"),
+    ("assets/shelf.png", "a banana"),
+    # ("assets/shelf.png", "fruits on the shelf"),
+    ("assets/shelf.png", "shelf"),
+    # ("assets/pokemons.jpg", "Bulbasaur"),
+    # ("assets/pokemons.jpg", "Charmander"),
+    # ("assets/pokemons.jpg", "Squirtle"),
+    # ("assets/one_piece.jpeg", "Brook"),
+    # ("assets/one_piece.jpeg", "Franky"),
+    # ("assets/one_piece.jpeg", "Monkey D. Luffy"),
+    # ("assets/one_piece.jpeg", "Nami"),
+    # ("assets/one_piece.jpeg", "Nico Robin"),
+    # ("assets/one_piece.jpeg", "Roronoa Zoro"),
+    # ("assets/one_piece.jpeg", "Tony Tony Chopper"),
+    # ("assets/one_piece.jpeg", "Usopp"),
+    # ("assets/one_piece.jpeg", "Vinsmoke Sanji"),
 ]
 (src_images, image_widths, image_heights), src_tokens = (
     model.process_image_text_pairs(image_text_list, return_image_sizes=True)
@@ -50,6 +54,8 @@ for i, image_text_pair in enumerate(image_text_list):
         (0, 255, 0),
         3,
     )
-    cv2.imshow(text, img)
+    print(f"{text}")
+    cv2.imwrite(f"results/shelf_and_banana{i}.jpg", img)
+    # cv2.imshow(text, img)
     cv2.waitKey(3500)
     cv2.destroyAllWindows()
